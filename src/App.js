@@ -1,14 +1,28 @@
 import React from 'react'
-import Navbar from './components/Navbar/Navbar'
+import { makeStyles } from '@material-ui/core/styles'
+import { CssBaseline } from '@material-ui/core';
+import Header from './components/Header';
+import Gigs from './components/Gigs';
+
+const useStyles=makeStyles((theme) => ({
+root:{
+  minHeight:'100vh',
+  backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/bg.jpg'})`,
+  backgroundRepeat:'no-repeat',
+  backgroundSize:'cover',
+},
+}));
 
 
-
-const App = () => {
+export default function App() {
+  const classes=useStyles();
   return (
-    <div>
-     <Navbar/>
+  <div className={classes.root}>
+  <CssBaseline/>
+  <Header/>
+  <Gigs/>
     </div>
-  )
+  );
 }
 
-export default App
+
